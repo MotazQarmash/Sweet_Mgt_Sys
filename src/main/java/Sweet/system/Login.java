@@ -17,9 +17,9 @@ public class Login {
     public List<Product> products = new ArrayList<>();
     public List<String>productFeedback=new ArrayList<>();
     public List<String>recipeFeedback=new ArrayList<>();
-    private Map<String, List<Message>> messagesToStoreOwners = new HashMap<>();
-    private Map<String, List<Message>> messagesToProviders = new HashMap<>();
-    private Map<String, List<Message>> messagesToUsers = new HashMap<>();
+    private final Map<String, List<Message>> messagesToStoreOwners = new HashMap<>();
+    private final Map<String, List<Message>> messagesToProviders = new HashMap<>();
+    private final Map<String, List<Message>> messagesToUsers = new HashMap<>();
 
 
 
@@ -148,9 +148,7 @@ public class Login {
         return messagesToStoreOwners.getOrDefault(email, new ArrayList<>());
     }
 
-    public List<Message> getMessagesForProvider(String email) {
-        return messagesToProviders.getOrDefault(email, new ArrayList<>());
-    }
+
     public List<Message> getMessagesForUser(String email) {
         return messagesToUsers.getOrDefault(email, new ArrayList<>());
     }
@@ -231,32 +229,35 @@ public class Login {
     public void deleteUser(String email) {
         Object entity = getEntityByEmail(email);
 
-        if (entity instanceof User) {
-            // Delete from Users
-            for (int i = 0; i < users.size(); i++) {
-                if (users.get(i).getEmail().equals(email)) {
-                    users.remove(i);
-                    break;  // Exit the loop after removing the user
+        switch (entity) {
+            case User _ -> {
+                // Delete from Users
+                for (int i = 0; i < users.size(); i++) {
+                    if (users.get(i).getEmail().equals(email)) {
+                        users.remove(i);
+                        break;  // Exit the loop after removing the user
+                    }
                 }
             }
-        } else if (entity instanceof StoreOwner) {
-            // Delete from StoreOwners
-            for (int i = 0; i < storeOwners.size(); i++) {
-                if (storeOwners.get(i).getEmail().equals(email)) {
-                    storeOwners.remove(i);
-                    break;  // Exit the loop after removing the store owner
+            case StoreOwner _ -> {
+                // Delete from StoreOwners
+                for (int i = 0; i < storeOwners.size(); i++) {
+                    if (storeOwners.get(i).getEmail().equals(email)) {
+                        storeOwners.remove(i);
+                        break;  // Exit the loop after removing the store owner
+                    }
                 }
             }
-        } else if (entity instanceof Provider) {
-            // Delete from Providers
-            for (int i = 0; i < providers.size(); i++) {
-                if (providers.get(i).getEmail().equals(email)) {
-                    providers.remove(i);
-                    break;  // Exit the loop after removing the provider
+            case Provider _ -> {
+                // Delete from Providers
+                for (int i = 0; i < providers.size(); i++) {
+                    if (providers.get(i).getEmail().equals(email)) {
+                        providers.remove(i);
+                        break;  // Exit the loop after removing the provider
+                    }
                 }
             }
-        } else {
-            System.out.println("No matching entity found for deletion.");
+            case null, default -> System.out.println("No matching entity found for deletion.");
         }
     }
 

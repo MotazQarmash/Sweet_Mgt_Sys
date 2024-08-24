@@ -13,8 +13,7 @@ public class Main {
     public static final int NOT_VALID = 0;
     static Scanner scanner = new Scanner(System.in);
     static Login login = new Login();
-    public static final String ADMIN = "Admin";
-    public static final String USER = "User";
+
     public static final int USER_TYPE = 1;
     private static int whichType = 0;
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
@@ -162,7 +161,7 @@ public class Main {
 
                         LOGGER.info("User Email: " + user.getEmail() +
                                 " | Total Price: " + user.total_price(currentStoreOwner) +
-                                " | Basket items: " + basketItems.toString());
+                                " | Basket items: " + basketItems);
                     }
                 }
             }

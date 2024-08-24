@@ -9,8 +9,8 @@ public class
 User {
     private String email;
     private String password;
-    private String role;
-    private int type;
+    private final String role;
+    private final int type;
     private boolean admin = false;
     private List<Recipe> recipes;
     private List<Product> basket;

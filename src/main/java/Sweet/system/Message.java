@@ -1,9 +1,9 @@
 package Sweet.system;
 
 public class Message {
-    private String senderEmail;
-    private String content;
-    private String receiverEmail;
+    private final String senderEmail;
+    private final String content;
+    private final String receiverEmail;
 
     public Message(String senderEmail, String recieverEmail, String content) {
         this.senderEmail = senderEmail;
@@ -23,9 +23,6 @@ public class Message {
 public String getReceiverEmail(){
         return receiverEmail;
 }
-  /*  @Override
-    public String toString() {
-        return "From: " + senderEmail + " - Message: " + content;
-    }*/
+
 
 }

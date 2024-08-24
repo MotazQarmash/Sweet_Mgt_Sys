@@ -9,7 +9,7 @@ public class Recipe {
     private final String content;
     private final String ownerEmail;
     private List<String> feedbacks;  // List to store feedback
-    private List<User> usersProvidedFeedback = new ArrayList<>();
+    private final List<User> usersProvidedFeedback = new ArrayList<>();
 
     public Recipe(String name, String content, String ownerEmail) {
         this.name = name;
@@ -28,10 +28,7 @@ public class Recipe {
         return content;
     }
 
-    /*public Date getDatePosted() {
-        return datePosted;
-    }
-*/
+
     public String getOwnerEmail() {
         return ownerEmail;
     }

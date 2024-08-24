@@ -14,7 +14,7 @@ public class Product {
     private String providerEmail;
     private List<String>feedbacks;
 
-    public double sales=0; // New field to track total sales
+    public double sales; // New field to track total sales
     public double totalRevenue; // New field to track total revenue
 
 
