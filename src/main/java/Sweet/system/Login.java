@@ -261,10 +261,7 @@ public class Login {
     }
 
 
-    public void addProvider(String email, String password,String city) {
-        Provider newProvider = new Provider(email, password,city);
-        providers.add(newProvider);
-    }
+
 
     public void addStoreOwner(String email, String password, String city) {
         StoreOwner newSo = new StoreOwner(email, password, city);
